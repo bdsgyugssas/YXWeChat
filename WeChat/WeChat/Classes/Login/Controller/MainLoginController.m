@@ -8,11 +8,21 @@
 
 #import "MainLoginController.h"
 #import "PhoneLoginController.h"
-
+#import "XmppManager.h"
+#import "MBProgressHUD.h"
+#import "UserInfo.h"
 
 
 @interface MainLoginController ()
 - (IBAction)moreClick;
+/** 用户账号  */
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+/** 用户头像  */
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+/** 用户密码  */
+@property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
+/** 按钮登陆  */
+@property (weak, nonatomic) IBOutlet UIButton *LoginButton;
 
 @end
 
@@ -20,11 +30,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置界面
+    [self setupView];
 }
 
-
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+#pragma mark - 私有方法
+/**
+ *  设置界面
+ */
+- (void)setupView
+{
+    self.userLabel.text=[UserInfo shareUserInfo].user;
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(registerSuccess) name:@"registerSuccess" object:nil];
+}
 
 #pragma mark -监听方法
+
+- (void)registerSuccess
+{
+    self.userLabel.text=[UserInfo shareUserInfo].user;
+}
 /**
  *  点击更多,弹出选择菜单
  */
@@ -38,7 +68,7 @@
     }];
     
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"注册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        [self performSegueWithIdentifier:@"注册" sender:nil];
     }];
     
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"前往微信安全中心" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -69,7 +99,7 @@
     }];
     
     UIAlertAction *actionMail = [UIAlertAction actionWithTitle:@"微信号/邮箱地址/QQ号" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self clickAvtionMail];
+        [self clickAvtionQQ];
     }];
     
     UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -85,15 +115,27 @@
 
 }
 /**
- *  点击了手机号登陆
+ *  点击了手机号登陆选项
  */
 - (void)clickAvtionPhone
 {
     [self performSegueWithIdentifier:@"1" sender:nil];
 }
-
-- (void)clickAvtionMail
+/**
+ *  点击了QQ登陆选项
+ */
+- (void)clickAvtionQQ
 {
-
+    [self performSegueWithIdentifier:@"2" sender:nil];
 }
+/**
+ *  点击了登陆按钮
+ */
+- (IBAction)clickLoginButton
+{
+    [UserInfo shareUserInfo].pwd=self.pwdTextField.text;
+    //登陆
+    [self login];
+}
+
 @end

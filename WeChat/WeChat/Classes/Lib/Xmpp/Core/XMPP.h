@@ -1,8 +1,6 @@
 // 
 // Core classes
-//
-
-#import <UIKit/UIKit.h>
+// 
 
 #import "XMPPJID.h"
 #import "XMPPStream.h"
@@ -25,7 +23,7 @@
 #import "XMPPAnonymousAuthentication.h"
 #import "XMPPDeprecatedPlainAuthentication.h"
 #import "XMPPDeprecatedDigestAuthentication.h"
-
+#import <UIKit/UIKit.h>
 // 
 // Categories
 // 

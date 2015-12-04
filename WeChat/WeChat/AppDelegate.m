@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "UserInfo.h"
+#import "XmppManager.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //读取用户信息
+    [[UserInfo shareUserInfo] readUserInfo];
+    //根据用户信息判断显示界面
+    if ([UserInfo shareUserInfo].isLogin) {
+        UIStoryboard *story=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        self.window.rootViewController=story.instantiateInitialViewController;
+        //连接到服务器
+        [[XmppManager shareXmppManager] connectToHostWithType:connectTypeLogin hander:nil];
+    }
+    
     return YES;
 }
 

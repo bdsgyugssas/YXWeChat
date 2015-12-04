@@ -24,7 +24,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)back:(id)sender {
+#pragma mark - 监听按钮
+/**
+ *  点击取消按钮
+ */
+- (IBAction)back:(id)sender
+{
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
