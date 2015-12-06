@@ -138,6 +138,8 @@
     
     self.myvCardTemp.nickname = self.nickNameLabel.text;
     
+    [UserInfo shareUserInfo].photo = self.userPhoto.image;
+    
     [[XmppManager shareXmppManager] updataMyCard:self.myvCardTemp];
 
 }

@@ -11,7 +11,7 @@
 #define userKey @"user"
 #define pwdKey @"pwd"
 #define LoginKey @"isLogin"
-
+#define UserPhoto @"userPhoto"
 @implementation UserInfo
 
 static id userInfo;
@@ -36,6 +36,11 @@ static id userInfo;
     return userInfo;
 }
 #pragma mark -
+- (NSString *)jid
+{
+    return [NSString stringWithFormat:@"%@@%@",self.user,Domain];
+    
+}
 
 - (void)saveUserInfo
 {
@@ -45,6 +50,9 @@ static id userInfo;
     [defaults setObject:self.pwd forKey:pwdKey];
     [defaults setBool:self.isLogin forKey:LoginKey];
     
+     NSData *data = UIImagePNGRepresentation(self.photo);
+    [defaults setObject:data forKey:UserPhoto];
+    
     [defaults synchronize];
 
 }
@@ -53,8 +61,10 @@ static id userInfo;
 {
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     
-    self.user=[defaults objectForKey:userKey];
-    self.pwd=[defaults objectForKey:pwdKey];
-    self.isLogin=[defaults boolForKey:LoginKey];
+    self.user = [defaults objectForKey:userKey];
+    self.pwd = [defaults objectForKey:pwdKey];
+    self.isLogin = [defaults boolForKey:LoginKey];
+    NSData *data = [defaults objectForKey:UserPhoto];
+    self.photo = [UIImage imageWithData:data];
 }
 @end

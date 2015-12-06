@@ -19,6 +19,10 @@
 @property (copy,nonatomic) NSString *registerUser;
 /** 注册用户密码  */
 @property (copy,nonatomic) NSString *registerPwd;
+/** 用户的jid  */
+@property (copy,nonatomic) NSString *jid;
+/** 用户的头像  */
+@property (strong, nonatomic) UIImage *photo;
 
 
 /** 存储用户账号信息  */

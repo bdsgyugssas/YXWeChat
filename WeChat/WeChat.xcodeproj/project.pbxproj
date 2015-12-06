@@ -161,6 +161,9 @@
 		2B5EC1891C11688A00A6D95C /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5EC0FA1C11688A00A6D95C /* libidn.a */; };
 		2B74AF471C1340FD00AF927E /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B74AF461C1340FD00AF927E /* ContactsViewController.m */; };
 		2B74AF4A1C13411D00AF927E /* AddFrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B74AF491C13411D00AF927E /* AddFrendViewController.m */; };
+		2B74AF4D1C142CCE00AF927E /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B74AF4C1C142CCE00AF927E /* ChatViewController.m */; };
+		2B74AF501C142D0500AF927E /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B74AF4F1C142D0500AF927E /* InputView.m */; };
+		2B74AF521C142D1300AF927E /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B74AF511C142D1300AF927E /* InputView.xib */; };
 		2B74EFE71C108BCE0027DC46 /* PhoneLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B74EFE61C108BCE0027DC46 /* PhoneLoginController.m */; };
 		2BA16F7D1C11947E00E17716 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA16F7A1C11947E00E17716 /* MBProgressHUD.m */; };
 		2BA16F811C11AE1600E17716 /* MeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA16F801C11AE1600E17716 /* MeTableViewController.m */; };
@@ -508,6 +511,11 @@
 		2B74AF461C1340FD00AF927E /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 		2B74AF481C13411D00AF927E /* AddFrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFrendViewController.h; sourceTree = "<group>"; };
 		2B74AF491C13411D00AF927E /* AddFrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFrendViewController.m; sourceTree = "<group>"; };
+		2B74AF4B1C142CCE00AF927E /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		2B74AF4C1C142CCE00AF927E /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		2B74AF4E1C142D0500AF927E /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		2B74AF4F1C142D0500AF927E /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
+		2B74AF511C142D1300AF927E /* InputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
 		2B74EFE51C108BCE0027DC46 /* PhoneLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneLoginController.h; sourceTree = "<group>"; };
 		2B74EFE61C108BCE0027DC46 /* PhoneLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneLoginController.m; sourceTree = "<group>"; };
 		2BA16F791C11947E00E17716 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -1580,6 +1588,8 @@
 				2B74AF461C1340FD00AF927E /* ContactsViewController.m */,
 				2B74AF481C13411D00AF927E /* AddFrendViewController.h */,
 				2B74AF491C13411D00AF927E /* AddFrendViewController.m */,
+				2B74AF4B1C142CCE00AF927E /* ChatViewController.h */,
+				2B74AF4C1C142CCE00AF927E /* ChatViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1594,6 +1604,9 @@
 		2B5EC18C1C1168EF00A6D95C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2B74AF4E1C142D0500AF927E /* InputView.h */,
+				2B74AF4F1C142D0500AF927E /* InputView.m */,
+				2B74AF511C142D1300AF927E /* InputView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1757,6 +1770,7 @@
 				2B0DF1781C0F5C3800A23F83 /* Login.storyboard in Resources */,
 				2B5EC1831C11688A00A6D95C /* README.txt in Resources */,
 				2B0DEB071C0F3A6400A23F83 /* Main.storyboard in Resources */,
+				2B74AF521C142D1300AF927E /* InputView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1814,6 +1828,7 @@
 				2B5EC1351C11688A00A6D95C /* XMPPMUC.m in Sources */,
 				2B5EC1311C11688A00A6D95C /* XMPPRoomMemoryStorage.m in Sources */,
 				2B5EC14B1C11688A00A6D95C /* XMPPRegistration.m in Sources */,
+				2B74AF501C142D0500AF927E /* InputView.m in Sources */,
 				2B5EC1771C11688A00A6D95C /* XMPPSRVResolver.m in Sources */,
 				2B5EC1081C11688A00A6D95C /* XMPPConstants.m in Sources */,
 				2B5EC1781C11688A00A6D95C /* XMPPStringPrep.m in Sources */,
@@ -1918,6 +1933,7 @@
 				2B5EC1121C11688A00A6D95C /* XMPPCoreDataStorage.m in Sources */,
 				2B5EC17F1C11688A00A6D95C /* DDTTYLogger.m in Sources */,
 				2BF67A601C11BDD3003E6587 /* UserInfo.m in Sources */,
+				2B74AF4D1C142CCE00AF927E /* ChatViewController.m in Sources */,
 				2B5EC1651C11688A00A6D95C /* XMPPAutoPing.m in Sources */,
 				2B5EC1011C11688A00A6D95C /* XMPPPlainAuthentication.m in Sources */,
 				2B5EC0FD1C11688A00A6D95C /* XMPPAnonymousAuthentication.m in Sources */,

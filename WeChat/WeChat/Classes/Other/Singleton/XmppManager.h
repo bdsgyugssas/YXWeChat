@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class XMPPvCardTempModule,XMPPvCardTemp,XMPPRoster,XMPPRosterCoreDataStorage,XMPPJID;
+@class XMPPvCardTempModule,XMPPvCardTemp,XMPPRoster,XMPPRosterCoreDataStorage,XMPPJID,XMPPMessageArchivingCoreDataStorage;
 
 typedef enum{
     resultTypeLoginSuccess,
@@ -47,13 +47,18 @@ typedef void (^subscrube) (subscrubeStatusType type);
 @property (strong, nonatomic) XMPPRoster *roster;
 /** 花名册存储  */
 @property (strong, nonatomic) XMPPRosterCoreDataStorage *rosterCoreDataStorage;
+/** 聊天数据存储  */
+@property (strong, nonatomic) XMPPMessageArchivingCoreDataStorage *messageArchivingCoreDataStorage;
 
 
-/** 上传信息  */
+/** 上传个人信息  */
 - (void)updataMyCard:(XMPPvCardTemp *)myCard;
+/** 发送聊天数据  */
+- (void)sendMessage:(NSString *)message toJid:(XMPPJID *)jid;
+
 /** 添加朋友  */
 - (void)subscrubeFriend:(NSString *)user withStatus:(subscrube)block;
-
+/** 移除朋友  */
 - (void)removeFriend:(XMPPJID *)jid;
 
 @end

@@ -55,13 +55,27 @@ static id Xmppmanager;
     return self.vCardTempModule.myvCardTemp;
 
 }
-
+/**
+ *  上传个人名片
+ *
+ *  @param myCard <#myCard description#>
+ */
 - (void)updataMyCard:(XMPPvCardTemp *)myCard
 {
     [self.vCardTempModule updateMyvCardTemp:myCard];
 
 }
+/**
+ *  发送聊天信息
+ */
+- (void)sendMessage:(NSString *)message toJid:(XMPPJID *)jid
+{
+    XMPPMessage *messager = [XMPPMessage messageWithType:@"chat" to:jid];
+    
+    [messager addBody:message];
+    [self.stream sendElement:messager];
 
+}
 /**
  *  删除朋友
  */
@@ -76,7 +90,7 @@ static id Xmppmanager;
  */
 - (void)subscrubeFriend:(NSString *)user withStatus:(subscrube)block
 {
-    XMPPJID *jid = [XMPPJID jidWithString:user];
+    XMPPJID *jid = [XMPPJID jidWithUser:user domain:Domain resource:nil];
     
     if ([self.rosterCoreDataStorage userExistsWithJID:jid xmppStream:self.stream]) {
         block(subscrubeStatusExists);
@@ -179,6 +193,13 @@ static id Xmppmanager;
     self.roster = roster;
     self.rosterCoreDataStorage = rosterCoreDataStorage;
   
+    //设置接收信息模块
+    XMPPMessageArchivingCoreDataStorage *messageArchivingCoreDataStorage = [XMPPMessageArchivingCoreDataStorage
+                                                                            sharedInstance];
+    XMPPMessageArchiving *messageArchiving = [[XMPPMessageArchiving alloc]initWithMessageArchivingStorage:messageArchivingCoreDataStorage];
+    [messageArchiving activate:self.stream];
+    self.messageArchivingCoreDataStorage = messageArchivingCoreDataStorage;
+
     [self.stream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
 
 }
@@ -195,6 +216,24 @@ static id Xmppmanager;
     }
 }
 #pragma mark -XMPPStreamDelegate
+
+- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
+{
+    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive) {
+        
+        UILocalNotification *localNo = [[UILocalNotification alloc]init];
+        
+        localNo.alertBody = [NSString stringWithFormat:@"%@\n%@",message.fromStr,message.body];
+    
+        localNo.fireDate = [NSDate date];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNo];    
+        
+    }
+
+
+
+}
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender
 {
         [UserInfo shareUserInfo].isLogin = YES;

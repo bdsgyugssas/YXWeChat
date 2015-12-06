@@ -10,6 +10,7 @@
 #import "XmppManager.h"
 #import "XMPPRosterCoreDataStorage.h"
 #import "UserInfo.h"
+#import "ChatViewController.h"
 
 @interface ContactsViewController () <NSFetchedResultsControllerDelegate>
 
@@ -30,6 +31,17 @@
     [self loadData];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    id destVc = segue.destinationViewController;
+    if ([destVc isKindOfClass:[ChatViewController class]]) {
+        ChatViewController *chatVc = destVc;
+        chatVc.jid = sender;
+        chatVc.navigationItem.title = ((XMPPJID *)sender).bare;
+    }
+
+
+}
 #pragma mark -私有方法
 /**
  *  加载联系人数据
@@ -41,8 +53,7 @@
     //设置请求,查哪张表
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"XMPPUserCoreDataStorageObject"];
     //设置筛选方式和排序
-    NSString *jid = [NSString stringWithFormat:@"%@@%@",[UserInfo shareUserInfo].user,Domain];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"streamBareJidStr = %@",jid];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"streamBareJidStr = %@",[UserInfo shareUserInfo].jid];
     request.predicate = predicate;
     
     NSSortDescriptor *sortD = [NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES];
@@ -104,6 +115,13 @@
         [[XmppManager shareXmppManager] removeFriend:object.jid];
     }
 
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XMPPUserCoreDataStorageObject *object = self.fetchObjects[indexPath.row];
+    
+    [self performSegueWithIdentifier:@"Chat" sender:object.jid];  
 }
 #pragma mark -NSFetchedResultsControllerDelegate
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller

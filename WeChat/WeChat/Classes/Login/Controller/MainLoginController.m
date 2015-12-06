@@ -45,6 +45,9 @@
 - (void)setupView
 {
     self.userLabel.text = [UserInfo shareUserInfo].user;
+    if ([UserInfo shareUserInfo].photo) {
+        self.userImageView.image = [UserInfo shareUserInfo].photo;
+    }
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(registerSuccess) name:@"registerSuccess" object:nil];
 }

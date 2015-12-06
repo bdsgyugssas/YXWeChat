@@ -481,7 +481,7 @@
         <scene sceneID="uwE-rp-te3">
             <objects>
                 <tableViewController id="iIH-93-69c" customClass="ContactsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Voe-jy-RAW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Voe-jy-RAW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -524,6 +524,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="l8Q-tm-a34" kind="show" identifier="Chat" id="qxM-fb-O3H"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bf8-yV-wym" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -626,6 +629,24 @@
             </objects>
             <point key="canvasLocation" x="2689" y="523"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="205-4n-DUy">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="l8Q-tm-a34" customClass="ChatViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cYX-sd-0Kh"/>
+                        <viewControllerLayoutGuide type="bottom" id="m9R-hA-HIE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XSP-a2-s2O">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNb-dK-vDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2689" y="1247"/>
+        </scene>
         <!--通讯录-->
         <scene sceneID="Sbw-uL-1NF">
             <objects>
@@ -680,7 +701,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4RR-U6-WsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="1251"/>
+            <point key="canvasLocation" x="1926" y="1611"/>
         </scene>
         <!--微信-->
         <scene sceneID="pl7-KE-yar">
