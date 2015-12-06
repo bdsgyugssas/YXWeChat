@@ -26,17 +26,18 @@
 
 // List the modules you're using here.
 
+//自动连接模块
 #import "XMPPReconnect.h"
-
+//花名册模块
 #import "XMPPRoster.h"
 #import "XMPPRosterCoreDataStorage.h"
-
+//电子名片模块
 #import "XMPPvCardTempModule.h"
 #import "XMPPvCardAvatarModule.h"
 #import "XMPPvCardCoreDataStorage.h"
 
-#import "XMPPCapabilities.h"
-#import "XMPPCapabilitiesCoreDataStorage.h"
-
-#import "XMPPMUC.h"
-#import "XMPPRoomCoreDataStorage.h"
+//#import "XMPPCapabilities.h"
+//#import "XMPPCapabilitiesCoreDataStorage.h"
+//
+//#import "XMPPMUC.h"
+//#import "XMPPRoomCoreDataStorage.h"

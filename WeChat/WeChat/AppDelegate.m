@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "UserInfo.h"
 #import "XmppManager.h"
+#import "DDLog.h"
+#import "DDTTYLogger.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
     //读取用户信息
     [[UserInfo shareUserInfo] readUserInfo];
     //根据用户信息判断显示界面

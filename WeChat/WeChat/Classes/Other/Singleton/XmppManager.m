@@ -10,6 +10,8 @@
 #import "XMPPFramework.h"
 #import "UserInfo.h"
 
+
+
 @interface XmppManager()<XMPPStreamDelegate>
 
 @property (assign, nonatomic) BOOL isRegister;
@@ -17,6 +19,8 @@
 @property (strong, nonatomic) XMPPStream *stream;
 
 @property (copy, nonatomic) resultBlock resultBlock;
+
+@property (strong, nonatomic) XMPPvCardTempModule *vCardTempModule;
 
 @end
 
@@ -44,8 +48,45 @@ static id Xmppmanager;
     
     return Xmppmanager;
 }
+#pragma mark -共有方法
 
-#pragma mark -私有方法
+- (XMPPvCardTemp *)myvCardTemp
+{
+    return self.vCardTempModule.myvCardTemp;
+
+}
+
+- (void)updataMyCard:(XMPPvCardTemp *)myCard
+{
+    [self.vCardTempModule updateMyvCardTemp:myCard];
+
+}
+
+/**
+ *  删除朋友
+ */
+- (void)removeFriend:(XMPPJID *)jid
+{
+
+    [self.roster removeUser:jid];
+    
+}
+/**
+ *  添加朋友
+ */
+- (void)subscrubeFriend:(NSString *)user withStatus:(subscrube)block
+{
+    XMPPJID *jid = [XMPPJID jidWithString:user];
+    
+    if ([self.rosterCoreDataStorage userExistsWithJID:jid xmppStream:self.stream]) {
+        block(subscrubeStatusExists);
+        return;
+    }
+    
+    [self.roster subscribePresenceToUser:jid];
+    block(subscrubeStatusAdd);
+
+}
 /**
  *  注销
  */
@@ -74,10 +115,10 @@ static id Xmppmanager;
     if (self.stream == nil) {
         [self setupStream];
     }
-
+    
     [self.stream disconnect];
     
-   //判断是登陆状态还是注册状态
+    //判断是登陆状态还是注册状态
     NSString *user=nil;
     switch (type) {
         case connectTypeLogin:{
@@ -93,21 +134,25 @@ static id Xmppmanager;
     }
     
     //用户名
-    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"zhengyuxindemacbook-pro.local" resource:@"iphone"];
+    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:Domain resource:@"iphone"];
     
     self.stream.myJID = myJID;
     //服务器地址
-    self.stream.hostName = @"zhengyuxindemacbook-pro.local";
+    self.stream.hostName = Domain;
     //服务器端口
     self.stream.hostPort = 5222;
-
+    
     NSError *error = nil;
     if (![self.stream connectWithTimeout:XMPPStreamTimeoutNone error:&error]) {
         WCLog(@"连接失败,原因是:%@",error);
     }
-
-
+    
+    
 }
+
+
+
+#pragma mark -私有方法
 /**
  *  创建XmppStream
  */
@@ -115,6 +160,25 @@ static id Xmppmanager;
 {
     self.stream = [[XMPPStream alloc]init];
     
+    //设置电子名片
+    XMPPvCardCoreDataStorage *vCardStorage=[XMPPvCardCoreDataStorage sharedInstance];
+    XMPPvCardTempModule *vCardTempModule=[[XMPPvCardTempModule alloc]initWithvCardStorage:vCardStorage];
+    [vCardTempModule activate:self.stream];
+    XMPPvCardAvatarModule *vCardAvatarModule=[[XMPPvCardAvatarModule alloc]initWithvCardTempModule:vCardTempModule];
+    [vCardAvatarModule activate:self.stream];
+    self.vCardTempModule = vCardTempModule;
+    
+    //设置断线自动重练
+    XMPPReconnect *reconnect = [[XMPPReconnect alloc]init];
+    [reconnect activate:self.stream];
+    
+    //设置花名册模块
+    XMPPRosterCoreDataStorage *rosterCoreDataStorage = [XMPPRosterCoreDataStorage sharedInstance];
+    XMPPRoster *roster = [[XMPPRoster alloc]initWithRosterStorage:rosterCoreDataStorage];
+    [roster activate:self.stream];
+    self.roster = roster;
+    self.rosterCoreDataStorage = rosterCoreDataStorage;
+  
     [self.stream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
 
 }
@@ -161,6 +225,7 @@ static id Xmppmanager;
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.resultBlock) {
             [UserInfo shareUserInfo].user=[UserInfo shareUserInfo].registerUser;
+            
             self.resultBlock(resultTypeRegisterSuccess);
         }
     });

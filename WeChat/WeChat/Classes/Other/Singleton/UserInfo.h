@@ -20,6 +20,7 @@
 /** 注册用户密码  */
 @property (copy,nonatomic) NSString *registerPwd;
 
+
 /** 存储用户账号信息  */
 - (void)saveUserInfo;
 /** 读取用户账号信息  */

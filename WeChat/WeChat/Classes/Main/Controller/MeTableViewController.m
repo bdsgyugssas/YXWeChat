@@ -9,24 +9,54 @@
 #import "MeTableViewController.h"
 #import "XmppManager.h"
 
+#import "XMPPvCardTemp.h"
+#import "XMPPvCardTempModule.h"
+#import "UserInfo.h"
+
 @interface MeTableViewController ()
+/** 头像 */
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+/** 昵称  */
+@property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
+/** 账号  */
+@property (weak, nonatomic) IBOutlet UILabel *userLael;
 
 @end
 
 @implementation MeTableViewController
 
+
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    self.navigationItem.title=@"我";
-
+    [self setupCell];
+ 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self setupCell];
 }
-#pragma mark -   监听方法
+
+
+#pragma mark -私有方法
+/**
+ *  设置Cell
+ */
+- (void)setupCell
+{
+    XMPPvCardTemp *vCard = [XmppManager shareXmppManager].myvCardTemp;
+    
+    self.userLael.text = [NSString stringWithFormat:@"微信号:%@",[UserInfo shareUserInfo].user];
+
+    if (vCard.photo) {
+        self.photoImageView.image=[UIImage imageWithData:vCard.photo];
+    }
+
+}
+#pragma mark -监听方法
 /**
  *  点击退出按钮
  */
@@ -52,7 +82,7 @@
    
 }
 
-#pragma mark - datasouce
+#pragma mark -datasouce
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 3) {

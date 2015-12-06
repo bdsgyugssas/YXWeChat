@@ -13,6 +13,23 @@
 
 @implementation UIViewController (Extension)
 
+- (void)setTabBarWithImage:(NSString *)image SelectImage:(NSString *)selectImage title:(NSString *)title
+{
+    
+    [self.tabBarItem setImage:[UIImage imageNamed:image]];
+    [self.tabBarItem setSelectedImage:[[UIImage imageNamed:@"tabbar_meHL"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    self.tabBarItem.title = title;
+    self.navigationItem.title = title;
+    
+    NSMutableDictionary *normalDict = [NSMutableDictionary dictionary];
+    normalDict[NSForegroundColorAttributeName] = GrayColor;
+    NSMutableDictionary *selectDict = [NSMutableDictionary dictionary];
+    selectDict[NSForegroundColorAttributeName] = GreenColor;
+    
+    [self.tabBarItem setTitleTextAttributes:normalDict forState:UIControlStateNormal];
+    [self.tabBarItem setTitleTextAttributes:selectDict forState:UIControlStateSelected]; 
+}
+
 /**
  *  登陆
  */
@@ -37,7 +54,6 @@
             default: break;
         }
     }];
-    
 }
 
 /**

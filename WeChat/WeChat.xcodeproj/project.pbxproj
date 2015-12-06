@@ -159,11 +159,13 @@
 		2B5EC1871C11688A00A6D95C /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5EC0F41C11688A00A6D95C /* DDXMLNode.m */; };
 		2B5EC1881C11688A00A6D95C /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2B5EC0F81C11688A00A6D95C /* build-libidn.sh */; };
 		2B5EC1891C11688A00A6D95C /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5EC0FA1C11688A00A6D95C /* libidn.a */; };
+		2B74AF471C1340FD00AF927E /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B74AF461C1340FD00AF927E /* ContactsViewController.m */; };
+		2B74AF4A1C13411D00AF927E /* AddFrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B74AF491C13411D00AF927E /* AddFrendViewController.m */; };
 		2B74EFE71C108BCE0027DC46 /* PhoneLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B74EFE61C108BCE0027DC46 /* PhoneLoginController.m */; };
-		2BA16F7B1C11947E00E17716 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2BA16F771C11947E00E17716 /* .gitignore */; };
-		2BA16F7C1C11947E00E17716 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2BA16F781C11947E00E17716 /* .travis.yml */; };
 		2BA16F7D1C11947E00E17716 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA16F7A1C11947E00E17716 /* MBProgressHUD.m */; };
 		2BA16F811C11AE1600E17716 /* MeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA16F801C11AE1600E17716 /* MeTableViewController.m */; };
+		2BD200E21C12C5A0007E6ED5 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD200E11C12C5A0007E6ED5 /* UserInfoViewController.m */; };
+		2BD4AE161C130C8600C385A8 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD4AE151C130C8600C385A8 /* EditViewController.m */; };
 		2BF67A601C11BDD3003E6587 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF67A5D1C11BDD3003E6587 /* UserInfo.m */; };
 		2BF67A611C11BDD3003E6587 /* XmppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF67A5F1C11BDD3003E6587 /* XmppManager.m */; };
 		2BF67A651C11CECF003E6587 /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF67A641C11CECF003E6587 /* UIViewController+Extension.m */; };
@@ -502,14 +504,20 @@
 		2B5EC0FA1C11688A00A6D95C /* libidn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libidn.a; sourceTree = "<group>"; };
 		2B5EC0FB1C11688A00A6D95C /* stringprep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringprep.h; sourceTree = "<group>"; };
 		2B5EC0FC1C11688A00A6D95C /* XMPPFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
+		2B74AF451C1340FD00AF927E /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		2B74AF461C1340FD00AF927E /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		2B74AF481C13411D00AF927E /* AddFrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFrendViewController.h; sourceTree = "<group>"; };
+		2B74AF491C13411D00AF927E /* AddFrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFrendViewController.m; sourceTree = "<group>"; };
 		2B74EFE51C108BCE0027DC46 /* PhoneLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneLoginController.h; sourceTree = "<group>"; };
 		2B74EFE61C108BCE0027DC46 /* PhoneLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneLoginController.m; sourceTree = "<group>"; };
-		2BA16F771C11947E00E17716 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		2BA16F781C11947E00E17716 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		2BA16F791C11947E00E17716 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		2BA16F7A1C11947E00E17716 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		2BA16F7F1C11AE1600E17716 /* MeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewController.h; sourceTree = "<group>"; };
 		2BA16F801C11AE1600E17716 /* MeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeTableViewController.m; sourceTree = "<group>"; };
+		2BD200E01C12C5A0007E6ED5 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		2BD200E11C12C5A0007E6ED5 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		2BD4AE141C130C8600C385A8 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		2BD4AE151C130C8600C385A8 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		2BF67A5C1C11BDD3003E6587 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		2BF67A5D1C11BDD3003E6587 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		2BF67A5E1C11BDD3003E6587 /* XmppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppManager.h; sourceTree = "<group>"; };
@@ -614,8 +622,8 @@
 			isa = PBXGroup;
 			children = (
 				2B5EC1901C11897300A6D95C /* Other */,
-				2B5EBF841C1166AF00A6D95C /* Main */,
-				2B0DF1741C0F5B3E00A23F83 /* Login */,
+				2B5EBF841C1166AF00A6D95C /* Main(主界面) */,
+				2B0DF1741C0F5B3E00A23F83 /* Login(登陆) */,
 				2B0DEB301C0F3AE900A23F83 /* Lib */,
 			);
 			path = Classes;
@@ -630,7 +638,7 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
-		2B0DF1741C0F5B3E00A23F83 /* Login */ = {
+		2B0DF1741C0F5B3E00A23F83 /* Login(登陆) */ = {
 			isa = PBXGroup;
 			children = (
 				2B0DF1771C0F5C3800A23F83 /* Login.storyboard */,
@@ -638,6 +646,7 @@
 				2B0DF17A1C10075700A23F83 /* Modal */,
 				2B0DF17B1C10075700A23F83 /* View */,
 			);
+			name = "Login(登陆)";
 			path = Login;
 			sourceTree = "<group>";
 		};
@@ -670,7 +679,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2B5EBF841C1166AF00A6D95C /* Main */ = {
+		2B5EBF841C1166AF00A6D95C /* Main(主界面) */ = {
 			isa = PBXGroup;
 			children = (
 				2B0DEB051C0F3A6400A23F83 /* Main.storyboard */,
@@ -678,6 +687,7 @@
 				2B5EC18B1C1168EF00A6D95C /* Modal */,
 				2B5EC18C1C1168EF00A6D95C /* View */,
 			);
+			name = "Main(主界面)";
 			path = Main;
 			sourceTree = "<group>";
 		};
@@ -1562,6 +1572,14 @@
 			children = (
 				2BA16F7F1C11AE1600E17716 /* MeTableViewController.h */,
 				2BA16F801C11AE1600E17716 /* MeTableViewController.m */,
+				2BD200E01C12C5A0007E6ED5 /* UserInfoViewController.h */,
+				2BD200E11C12C5A0007E6ED5 /* UserInfoViewController.m */,
+				2BD4AE141C130C8600C385A8 /* EditViewController.h */,
+				2BD4AE151C130C8600C385A8 /* EditViewController.m */,
+				2B74AF451C1340FD00AF927E /* ContactsViewController.h */,
+				2B74AF461C1340FD00AF927E /* ContactsViewController.m */,
+				2B74AF481C13411D00AF927E /* AddFrendViewController.h */,
+				2B74AF491C13411D00AF927E /* AddFrendViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1593,8 +1611,6 @@
 		2BA16F761C11947E00E17716 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				2BA16F771C11947E00E17716 /* .gitignore */,
-				2BA16F781C11947E00E17716 /* .travis.yml */,
 				2BA16F791C11947E00E17716 /* MBProgressHUD.h */,
 				2BA16F7A1C11947E00E17716 /* MBProgressHUD.m */,
 			);
@@ -1736,13 +1752,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BA16F7B1C11947E00E17716 /* .gitignore in Resources */,
 				2B5EC1881C11688A00A6D95C /* build-libidn.sh in Resources */,
 				2B0DEB091C0F3A6400A23F83 /* Assets.xcassets in Resources */,
 				2B0DF1781C0F5C3800A23F83 /* Login.storyboard in Resources */,
 				2B5EC1831C11688A00A6D95C /* README.txt in Resources */,
 				2B0DEB071C0F3A6400A23F83 /* Main.storyboard in Resources */,
-				2BA16F7C1C11947E00E17716 /* .travis.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1835,6 +1849,7 @@
 				2B5EC12C1C11688A00A6D95C /* XMPPRoomOccupantCoreDataStorageObject.m in Sources */,
 				2B5EC1441C11688A00A6D95C /* NSXMLElement+XEP_0059.m in Sources */,
 				2B5EC1131C11688A00A6D95C /* XMPPFileTransfer.m in Sources */,
+				2BD4AE161C130C8600C385A8 /* EditViewController.m in Sources */,
 				2B5EC1611C11688A00A6D95C /* XMPPBlocking.m in Sources */,
 				2B5EC1031C11688A00A6D95C /* XMPPXFacebookPlatformAuthentication.m in Sources */,
 				2B5EC16C1C11688A00A6D95C /* XMPPMessage+XEP_0224.m in Sources */,
@@ -1862,7 +1877,9 @@
 				2B5EC10F1C11688A00A6D95C /* XMPPPresence.m in Sources */,
 				2B5EC15C1C11688A00A6D95C /* XMPPvCardAvatarModule.m in Sources */,
 				2B5EC1161C11688A00A6D95C /* XMPPGoogleSharedStatus.m in Sources */,
+				2B74AF4A1C13411D00AF927E /* AddFrendViewController.m in Sources */,
 				2B5EC1281C11688A00A6D95C /* XMPPPrivacy.m in Sources */,
+				2BD200E21C12C5A0007E6ED5 /* UserInfoViewController.m in Sources */,
 				2B5EC1491C11688A00A6D95C /* XMPPIQ+XEP_0066.m in Sources */,
 				2B5EC1071C11688A00A6D95C /* NSXMLElement+XMPP.m in Sources */,
 				2B5EC13B1C11688A00A6D95C /* XMPPvCardTempCoreDataStorageObject.m in Sources */,
@@ -1880,6 +1897,7 @@
 				2B5EC1301C11688A00A6D95C /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
 				2B5EC16D1C11688A00A6D95C /* XMPPMessage+XEP_0280.m in Sources */,
 				2B5EC13E1C11688A00A6D95C /* XMPPvCardTempAdrTypes.m in Sources */,
+				2B74AF471C1340FD00AF927E /* ContactsViewController.m in Sources */,
 				2B5EC1811C11688A00A6D95C /* DDDispatchQueueLogFormatter.m in Sources */,
 				2B5EC1821C11688A00A6D95C /* DDMultiFormatter.m in Sources */,
 				2B5EC1291C11688A00A6D95C /* XMPPRoom.xcdatamodeld in Sources */,

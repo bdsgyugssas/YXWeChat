@@ -52,13 +52,16 @@
                                                 <rect key="frame" x="10" y="260" width="560" height="30"/>
                                                 <state key="normal" title="登陆遇到问题？"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iht-pg-Dx5" userLabel="登陆按钮">
-                                                <rect key="frame" x="10" y="210" width="560" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iht-pg-Dx5" userLabel="登陆按钮">
+                                                <rect key="frame" x="10" y="200" width="560" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="fAx-g3-RMA"/>
+                                                    <constraint firstAttribute="height" constant="40" id="fAx-g3-RMA"/>
                                                 </constraints>
-                                                <state key="normal" title="登陆" backgroundImage="fts_green_btn">
+                                                <state key="normal" title="登陆" backgroundImage="fts_green_btn_HL">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="disabled" backgroundImage="fts_green_btn_HL">
+                                                    <color key="titleColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="highlighted" backgroundImage="fts_green_btn_HL"/>
                                                 <connections>
@@ -66,14 +69,14 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDt-rh-7UD" userLabel="分割线">
-                                                <rect key="frame" x="10" y="184" width="570" height="1"/>
+                                                <rect key="frame" x="10" y="174" width="570" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="xys-s6-GKG"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAz-zD-oYN">
-                                                <rect key="frame" x="10" y="146" width="34" height="30"/>
+                                                <rect key="frame" x="10" y="136" width="34" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="6JF-We-1Q0"/>
                                                 </constraints>
@@ -82,13 +85,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TCj-sO-99Q">
-                                                <rect key="frame" x="104" y="146" width="476" height="30"/>
+                                                <rect key="frame" x="104" y="136" width="476" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="dlD-0l-6U2"/>
                                                 </constraints>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="pwdFieldChange" destination="KeC-U6-Wwi" eventType="editingChanged" id="hDx-XM-ktl"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -161,8 +167,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3l-p6-K44">
-                                <rect key="frame" x="0.0" y="124" width="600" height="310"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r3l-p6-K44">
+                                <rect key="frame" x="0.0" y="124" width="600" height="324"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用手机号登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYM-tz-BKg" userLabel="标题">
                                         <rect key="frame" x="230" y="0.0" width="140" height="24"/>
@@ -181,6 +187,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="textChange" destination="Hvo-61-51n" eventType="editingChanged" id="ETN-Ia-9Jt"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yLl-Vl-9zU" userLabel="手机号">
                                                 <rect key="frame" x="101" y="45" width="489" height="44"/>
@@ -190,6 +199,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="textChange" destination="Hvo-61-51n" eventType="editingChanged" id="weJ-wr-lEO"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiw-2z-LwX" userLabel="密码">
                                                 <rect key="frame" x="0.0" y="90" width="100" height="44"/>
@@ -254,21 +266,28 @@
                                             <constraint firstItem="anQ-Q8-CpG" firstAttribute="leading" secondItem="fiw-2z-LwX" secondAttribute="trailing" id="z97-Eg-xNl"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODr-8n-YmL" userLabel="登陆按钮">
-                                        <rect key="frame" x="15" y="224" width="570" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODr-8n-YmL" userLabel="登陆按钮">
+                                        <rect key="frame" x="15" y="224" width="570" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="GIg-Xs-mSU"/>
+                                            <constraint firstAttribute="height" constant="40" id="GIg-Xs-mSU"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="登陆" backgroundImage="fts_green_btn_HL">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="disabled" backgroundImage="fts_green_btn_HL">
+                                            <color key="titleColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginClick:" destination="Hvo-61-51n" eventType="touchUpInside" id="i7U-80-HGo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X96-4U-xVS" userLabel="短信验证码">
-                                        <rect key="frame" x="245.5" y="279" width="108" height="27"/>
+                                        <rect key="frame" x="245.5" y="289" width="108" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="通过短信验证码登陆"/>
                                     </button>
@@ -327,12 +346,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="goS-KK-v91">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="GLk-AH-94h">
-                            <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.086274509799999996" green="0.52549019610000003" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="back:" destination="Hvo-61-51n" id="XBC-qg-wVA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="LoginButton" destination="ODr-8n-YmL" id="fyg-3x-ZpA"/>
+                        <outlet property="pwdField" destination="anQ-Q8-CpG" id="9c2-bq-Jw2"/>
+                        <outlet property="userField" destination="yLl-Vl-9zU" id="VyP-7q-EQ4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2d-d2-MGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -429,6 +453,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="textChange" destination="bgo-JJ-zVe" eventType="editingChanged" id="I0I-MO-Mjy"/>
+                                                            </connections>
                                                         </textField>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="微信号/邮箱地址/QQ号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9c-9D-ANl" userLabel="账号提示框">
                                                             <rect key="frame" x="100" y="0.0" width="490" height="40"/>
@@ -438,6 +465,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="textChange" destination="bgo-JJ-zVe" eventType="editingChanged" id="Y8W-ol-dlp"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
@@ -455,13 +485,17 @@
                                                         <constraint firstItem="g9c-9D-ANl" firstAttribute="top" secondItem="iNM-yC-mcZ" secondAttribute="top" id="zh4-Rb-oh1"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1v0-6R-2Zl" userLabel="登陆">
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1v0-6R-2Zl" userLabel="登陆">
                                                     <rect key="frame" x="18" y="170" width="564" height="40"/>
-                                                    <color key="backgroundColor" red="0.42171946960000001" green="1" blue="0.26968962559999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="1uI-4l-BqE"/>
                                                     </constraints>
-                                                    <state key="normal" title="登陆"/>
+                                                    <state key="normal" title="登陆" backgroundImage="fts_green_btn_HL">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <state key="disabled" backgroundImage="fts_green_btn_HL">
+                                                        <color key="titleColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="loginClick:" destination="bgo-JJ-zVe" eventType="touchUpInside" id="7zW-Ck-J0M"/>
                                                     </connections>
@@ -496,13 +530,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="aCx-Fm-yPj">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="pZe-uO-F6a">
-                            <color key="tintColor" red="0.42171946960000001" green="1" blue="0.26968962559999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.086274509799999996" green="0.52549019610000003" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="back:" destination="bgo-JJ-zVe" id="SdB-tz-ruO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loginButton" destination="1v0-6R-2Zl" id="oIX-zy-04m"/>
                         <outlet property="pwdTextField" destination="VHb-85-yDv" id="vym-ah-iXd"/>
                         <outlet property="userTextfield" destination="g9c-9D-ANl" id="aRM-0Z-TYF"/>
                     </connections>
@@ -642,9 +677,9 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5o-P2-aUU">
-                                                    <rect key="frame" x="18" y="207" width="564" height="30"/>
+                                                    <rect key="frame" x="18" y="207" width="564" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="xhJ-9Y-2Ln"/>
+                                                        <constraint firstAttribute="height" constant="40" id="xhJ-9Y-2Ln"/>
                                                     </constraints>
                                                     <state key="normal" title="注册" backgroundImage="fts_green_btn_HL">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -679,7 +714,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="bEr-Ix-1pD">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="OPV-gW-N12">
-                            <color key="tintColor" red="0.42171946960000001" green="1" blue="0.26968962559999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.086274509803921567" green="0.52549019607843139" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="back:" destination="c6l-lY-zG6" id="TpK-6L-RAP"/>
                             </connections>
@@ -698,7 +733,6 @@
     </scenes>
     <resources>
         <image name="DefaultProfileHead_phone" width="68" height="68"/>
-        <image name="fts_green_btn" width="8" height="13"/>
         <image name="fts_green_btn_HL" width="8" height="13"/>
     </resources>
 </document>

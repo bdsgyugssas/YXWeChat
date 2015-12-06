@@ -44,16 +44,24 @@
  */
 - (void)setupView
 {
-    self.userLabel.text=[UserInfo shareUserInfo].user;
+    self.userLabel.text = [UserInfo shareUserInfo].user;
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(registerSuccess) name:@"registerSuccess" object:nil];
 }
 
-#pragma mark -监听方法
 
+#pragma mark -监听方法
+/**
+ *  监听密码输入栏文字改变
+ */
+- (IBAction)pwdFieldChange {
+    self.LoginButton.enabled=self.pwdTextField.text.length;
+}/**
+ *  监听申请成功事件
+ */
 - (void)registerSuccess
 {
-    self.userLabel.text=[UserInfo shareUserInfo].user;
+    self.userLabel.text = [UserInfo shareUserInfo].user;
 }
 /**
  *  点击更多,弹出选择菜单

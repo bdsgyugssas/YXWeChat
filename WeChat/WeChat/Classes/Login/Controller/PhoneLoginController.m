@@ -7,8 +7,15 @@
 //
 
 #import "PhoneLoginController.h"
+#import "UserInfo.h"
 
 @interface PhoneLoginController ()
+/** 用户名  */
+@property (weak, nonatomic) IBOutlet UITextField *userField;
+/** 用户密码  */
+@property (weak, nonatomic) IBOutlet UITextField *pwdField;
+/** 登陆按钮  */
+@property (weak, nonatomic) IBOutlet UIButton *LoginButton;
 
 @end
 
@@ -32,6 +39,20 @@
 {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+/**
+ *  监听输入栏状态改变
+ */
+- (IBAction)textChange {
+    self.LoginButton.enabled = (self.userField.text.length && self.pwdField.text.length);
+}
+
+- (IBAction)loginClick:(id)sender {
+    //存储账号密码
+    [UserInfo shareUserInfo].user=self.userField.text;
+    [UserInfo shareUserInfo].pwd=self.pwdField.text;
+    //登陆
+    [self login];
 }
 
 @end

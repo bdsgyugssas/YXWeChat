@@ -11,6 +11,6 @@
 @interface UIViewController (Extension)
 /** 登陆  */
 - (void)login;
-/** 注册  */
-- (void)goRegister;
+/** 设置tabbar  */
+- (void)setTabBarWithImage:(NSString *)image SelectImage:(NSString *)selectImage title:(NSString *)title;
 @end

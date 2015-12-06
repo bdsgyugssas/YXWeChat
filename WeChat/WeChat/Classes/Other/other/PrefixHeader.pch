@@ -21,4 +21,14 @@
 #import "UIViewController+Extension.h"
 #import "UITextField+Extension.h"
 
+#define   f(a) (double)arc4random_uniform(a)/255
+#define   RGB(r, g, b) [UIColor colorWithRed:f(r) green:f(g) blue:f(b) alpha:1]
+#define   RGBA(r, g, b, a) [UIColor colorWithRed:f(r) green:f(g) blue:f(b) alpha:(double)a]
+
+#define   GreenColor RGB(17, 141, 9)
+#define   GrayColor RGB(200, 200, 200)
+#define   ButtonGreenColor RGB(78, 217, 78)
+
+#define Domain @"zhengyuxindemacbook-pro.local"
+
 #endif /* PrefixHeader_pch */

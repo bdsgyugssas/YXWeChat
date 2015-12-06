@@ -16,7 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *userTextfield;
 /** 密码  */
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
-
+/** 登陆按钮  */
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 /** 点击登陆按钮  */
 - (IBAction)loginClick:(id)sender;
 
@@ -34,6 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark -  监听方法
+- (IBAction)textChange {
+    self.loginButton.enabled = (self.pwdTextField.text.length && self.userTextfield.text.length);
+}
+
 /**
  *  点击取消按钮
  */
